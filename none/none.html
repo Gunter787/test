@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X</title>
+
+    <script>
+        // Funkcja przekierowująca użytkownika po 10 sekundach w nowej karcie
+        function redirectAfterTimeout(newWindow) {
+            setTimeout(function() {
+                newWindow.location.href = "Opis/Opis.html"; // Adres przekierowania
+            }, 3000); // 10 sekund
+        }
+
+        // Funkcja otwierająca nową kartę i rozpoczynająca odliczanie do przekierowania
+        function openDeadLink() {
+            var newWindow = window.open('', '_blank'); // Otwiera nową pustą kartę
+            if (newWindow) {
+                redirectAfterTimeout(newWindow); // Przekierowanie po 10 sekundach
+            } else {
+                alert("Twoja przeglądarka blokuje otwieranie nowych kart."); // Obsługa w razie zablokowania nowego okna
+            }
+        }
+    </script>
+
+    <style>
+        :root{
+            background-image: url("none.png");
+            background-attachment: scroll;
+            height: 8500px;
+        }
+
+        main{
+            height: 8440px;
+        }
+
+        footer{
+            color: aliceblue;
+            background-color: black;
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main></main>
+
+    <div id="martwy-link" onclick="openDeadLink()">
+        <p>
+            <a href="javascript:void(0)">tu mnie masz</a>
+        </p>
+    </div>
+</body>
+</html>
